@@ -1,5 +1,14 @@
 ORG 100
-
-
-
-hello , djfdfk djfjksf
+      LDA VAL1     
+      ADD VAL2 I   
+      STA RES      
+      CLA          
+      INP          
+      OUT          
+      HLT          
+ORG 105
+VAL1, HEX 001A      
+VAL2, DEC -5        
+PTR,  HEX 105      
+RES,  DEC 0       
+END

@@ -2,108 +2,110 @@
 
 u_int16_t memoryReferenceInstructions(char *instruction)
 {
-    if (instruction == "AND")
+    if (strcmp(instruction, "AND") == 0)
     {
         return 0;
     }
-    else if (instruction == "ADD")
+    else if (strcmp(instruction, "ADD") == 0)
     {
         return 0b0001000000000000;
     }
-    else if (instruction == "LDA")
+    else if (strcmp(instruction, "LDA") == 0)
     {
         return 0b0010000000000000;
     }
-    else if (instruction == "STA")
+    else if (strcmp(instruction, "STA") == 0)
     {
         return 0b0011000000000000;
     }
-    else if (instruction == "BUN")
+    else if (strcmp(instruction, "BUN") == 0)
     {
         return 0b0100000000000000;
     }
-    else if (instruction == "BSA")
+    else if (strcmp(instruction, "BSA") == 0)
     {
         return 0b0101000000000000;
     }
-    else if (instruction == "ISZ")
+    else if (strcmp(instruction, "ISZ") == 0)
     {
         return 0b0110000000000000;
     }
+    return 1;
 }
 
 u_int16_t nonmemoryReferenceInstructions(char *instruction)
 {
-    if (instruction == "HLT")
-    {
-        return 0b0111000000000000;
-    }
-    else if (instruction == "SZE")
+    if (strcmp(instruction, "HLT") == 0)
     {
         return 0b0111000000000001;
     }
-    else if (instruction == "SZA")
+    else if (strcmp(instruction, "SZE") == 0)
     {
         return 0b0111000000000010;
     }
-    else if (instruction == "SNA")
-    {
-        return 0b0111000000000011;
-    }
-    else if (instruction == "SPA")
+    else if (strcmp(instruction, "SZA") == 0)
     {
         return 0b0111000000000100;
     }
-    else if (instruction == "INC")
-    {
-        return 0b0111000000000101;
-    }
-    else if (instruction == "CIL")
-    {
-        return 0b0111000000000110;
-    }
-    else if (instruction == "CIR")
-    {
-        return 0b0111000000000111;
-    }
-    else if (instruction == "CME")
+    else if (strcmp(instruction, "SNA") == 0)
     {
         return 0b0111000000001000;
     }
-    else if (instruction == "CMA")
+    else if (strcmp(instruction, "SPA") == 0)
     {
-        return 0b0111000000001001;
+        return 0b0111000000010000;
     }
-    else if (instruction == "CLE")
+    else if (strcmp(instruction, "INC") == 0)
     {
-        return 0b0111000000001010;
+        return 0b0111000000100000;
     }
-    else if (instruction == "CLA")
+    else if (strcmp(instruction, "CIL") == 0)
     {
-        return 0b0111000000001011;
+        return 0b0111000001000000;
     }
-    else if (instruction == "INP")
+    else if (strcmp(instruction, "CIR") == 0)
     {
-        return 0b1111000000001011;
+        return 0b0111000010000000;
     }
-    else if (instruction == "OUT")
+    else if (strcmp(instruction, "CME") == 0)
     {
-        return 0b1111000000001010;
+        return 0b0111000100000000;
     }
-    else if (instruction == "SKI")
+    else if (strcmp(instruction, "CMA") == 0)
     {
-        return 0b1111000000001001;
+        return 0b0111001000000000;
     }
-    else if (instruction == "SKO")
+    else if (strcmp(instruction, "CLE") == 0)
     {
-        return 0b1111000000001000;
+        return 0b0111010000000000;
     }
-    else if (instruction == "ION")
+    else if (strcmp(instruction, "CLA") == 0)
     {
-        return 0b1111000000000111;
+        return 0b0111100000000000;
     }
-    else if (instruction == "IOF")
+    else if (strcmp(instruction, "INP") == 0)
     {
-        return 0b1111000000000110;
+        return 0b1111100000000000;
     }
+    else if (strcmp(instruction, "OUT") == 0)
+    {
+        return 0b1111010000000000;
+    }
+    else if (strcmp(instruction, "SKI") == 0)
+    {
+        return 0b1111001000000000;
+    }
+    else if (strcmp(instruction, "SKO") == 0)
+    {
+        return 0b1111000100000000;
+    }
+    else if (strcmp(instruction, "ION") == 0)
+    {
+        return 0b1111000010000000;
+    }
+    else if (strcmp(instruction, "IOF") == 0)
+    {
+        return 0b1111000001000000;
+    }
+    return 1;
 }

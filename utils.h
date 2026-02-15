@@ -4,6 +4,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+void print_array(char *arr[], int count)
+{
+    for (int i = 0; i < count; i++)
+    {
+        printf("Token %d: '%s'\n", i, arr[i]);
+    }
+}
+
 void remove_comments(char *line)
 {
     char *tmp = line;
@@ -17,20 +25,21 @@ int tokenize_line(char *line, char *result[], char delimiter)
 {
     char delim_str[2] = {delimiter, '\0'};
     char *token = strtok(line, delim_str);
-    result[0] = token;
     int token_count = 0;
 
+    // Max tokens allowed is 3 for your logic (0, 1, 2)
     while (token != NULL)
     {
-        token_count++;
         if (token_count >= 3)
         {
-            return -1;
+            return -1; // Too many tokens!
         }
-        // printf("got token %s", token);
-        token = strtok(NULL, delim_str);
+
         result[token_count] = token;
+        token_count++;
+        token = strtok(NULL, delim_str);
     }
+
     return token_count;
 }
 
