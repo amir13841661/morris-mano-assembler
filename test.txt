@@ -1,14 +1,14 @@
 ORG 100
-      LDA VAL1     
-      ADD VAL2 I   
-      STA RES      
-      CLA          
-      INP          
-      OUT          
-      HLT          
-ORG 105
-VAL1, HEX 001A      
-VAL2, DEC -5        
-PTR,  HEX 105      
-RES,  DEC 0       
+      LDA VAL1      / 100: Load VAL1
+      ADD VAL2 I    / 101: Add VAL2 Indirectly
+      STA RES       / 102: Store result
+      CLA           / 103: Clear AC
+      INP           / 104: Input char
+      OUT           / 105: Output char
+      HLT           / 106: Halt
+ORG 107
+VAL1, HEX 001A      / 107: Should be 001A
+VAL2, DEC -5        / 108: Should be FFFB
+PTR,  HEX 107       / 109: Pointer to VAL1
+RES,  DEC 0         / 10A: Placeholder
 END

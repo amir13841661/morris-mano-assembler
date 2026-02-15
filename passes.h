@@ -74,12 +74,16 @@ int first_pass(char *filePath, HashMap *labels)
                 printf("error in line %d ORG has too many arguments", line_number);
                 return -1;
             }
-            if (isnumber(instruction_tokens[1]) != 0)
+
+            int address;
+            char *endptr;
+            address = strtol(instruction_tokens[1], &endptr, 16);
+            if (endptr == instruction_tokens[1] || *endptr != '\0')
             {
-                printf("error in line %d ORG address has to be a positive number", line_number);
+                printf("error in line %d operand not a number", line_number);
                 return -1;
             }
-            int address = atoi(instruction_tokens[1]);
+
             if (address < 0)
             {
                 printf("error in line %d ORG address has to be positive number", line_number);
@@ -194,7 +198,7 @@ int second_pass(char *filepath, HashMap *labels, char *outputFilename)
             else if (strcmp(instruction_tokens[0], "ORG") == 0)
             {
                 char *endptr;
-                int address = strtol(instruction_tokens[1], &endptr, 10);
+                int address = strtol(instruction_tokens[1], &endptr, 16);
                 if (endptr == instruction_tokens[1] || *endptr != '\0')
                 {
                     printf("error in line %d operand not a number", line_number);

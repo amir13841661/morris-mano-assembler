@@ -16,7 +16,7 @@ void remove_comments(char *line)
 {
     char *tmp = line;
 
-    while (*tmp != '#' && *tmp != '\0')
+    while (*tmp != '/' && *tmp != '\0')
         tmp++;
     *tmp = '\0';
 }
