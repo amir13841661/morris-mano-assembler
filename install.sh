@@ -7,7 +7,7 @@ echo "Cloning repository into $TEMP_DIR..."
 # 2. Clone your repo
 git clone https://github.com/amir13841661/morris-mano-assembler.git "$TEMP_DIR"
 cd "$TEMP_DIR"
-
+cd src  
 # 3. Compile
 echo "Compiling mano-as..."
 gcc main.c passes.c hashmap.c -o mano-as
