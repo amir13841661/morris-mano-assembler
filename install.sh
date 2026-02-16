@@ -10,7 +10,7 @@ cd "$TEMP_DIR"
 cd src  
 # 3. Compile
 echo "Compiling mano-as..."
-gcc main.c passes.c hashmap.c -o mano-as
+gcc main.c -o mano-as
 
 if [ $? -eq 0 ]; then
     echo "Compilation successful!"
